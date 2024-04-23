@@ -1,6 +1,5 @@
 import { Button, Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-
 const CategoryCardComponent = ({ category, idx }) => {
   const images = [
     "/images/tablets-category.png",
