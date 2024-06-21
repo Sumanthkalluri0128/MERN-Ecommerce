@@ -3,6 +3,9 @@ const express = require("express");
 const app = express();
 
 const PORT = 3000;
+
+app.use(express.json());
+
 const apiRoutes = require("./routes/apiRoutes");
 
 //mongodb connecction
@@ -16,4 +19,11 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`listing on port ${PORT}`);
+});
+
+app.use((error, req, res, next) => {
+  res.status(500).json({
+    message: error.message,
+    stack: error.stack,
+  });
 });
